@@ -1,3 +1,8 @@
+model/*
+!model/.gitkeep 
+mocap_data/*
+!mocap_data/.gitkeep 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

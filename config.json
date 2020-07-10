@@ -1,0 +1,4 @@
+{
+  "motion": "mocap_data/MPI_mosh/00008/misc_poses.npz",
+  "n_frames_limit": 100
+}
