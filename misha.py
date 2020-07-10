@@ -49,6 +49,7 @@ class Misha():
 
     print(list(vars(motion).keys()))
     print(f'frames {self.n_frames}')
+    print(f'gender {self.gender}')
     print(f'mocap_framerate {motion.mocap_framerate}')
 
     bpy.context.scene.frame_end = self.n_frames-1
@@ -85,6 +86,7 @@ class Misha():
 
     for i in range(self.n_frames):
       pose = motion.poses[i]
+      print(pose.shape)
       pose = np.reshape(pose, (-1,3))
       pose = pose[:self.n_bones]
 
@@ -123,7 +125,8 @@ class Misha():
       mrots, bsh = self.rodrigues2bshapes(pose, mat_pose)
 
       for ibone, mrot in enumerate(mrots):
-          bone = self.arm_ob.pose.bones[self.get_bname(ibone)]
+          bname = self.get_bname(ibone)
+          bone = self.arm_ob.pose.bones[self.get_bname(ibone, obname=f'{self.gender}_avg')]
           if ibone == 0:
             bone.location = trans
           bone.rotation_quaternion = Matrix(mrot).to_quaternion()
