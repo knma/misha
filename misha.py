@@ -124,7 +124,6 @@ class Misha():
       mrots, bsh = self.rodrigues2bshapes(pose, mat_pose)
 
       for ibone, mrot in enumerate(mrots):
-          bname = self.get_bname(ibone)
           bone = self.arm_ob.pose.bones[self.get_bname(ibone, obname=f'{self.gender}_avg')]
           if ibone == 0:
             bone.location = trans
