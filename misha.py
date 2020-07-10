@@ -86,7 +86,6 @@ class Misha():
 
     for i in range(self.n_frames):
       pose = motion.poses[i]
-      print(pose.shape)
       pose = np.reshape(pose, (-1,3))
       pose = pose[:self.n_bones]
 
